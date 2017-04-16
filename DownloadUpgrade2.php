@@ -5,7 +5,7 @@
 	
 	$bldg_id = isset($_POST['bldg_id']) ? protect($_POST['bldg_id']) : '';
 	$bldg_name = isset($_POST['bldg_name']) ? protect($_POST['bldg_name']) : '';
-	//$cost = isset($_POST['cost']) ? protect($_POST['cost']) : ''; //cost is going to be set
+	$cost = isset($_POST['cost']) ? protect($_POST['cost']) : ''; //cost is going to be set
 
 	if ($bldg_id <> '' || $bldg_name <> '' ) {
 		
@@ -15,8 +15,8 @@
 		if ( mysql_num_rows($player_query1)==1) {
 			//we have found our entries to update
 			$player_data1 = mysql_fetch_assoc($player_query1);
-			$intel = $player_data1['intel'];
-			$cost = 1000000000; //points are in 'bytes'- this is 1TB
+			$intel = $player_data1["intel"];
+	//		$cost = 1000000000; //points are in 'bytes'- this is 1TB
 
 			if ($intel >= $cost) {
 				$intel = $intel - $cost;
